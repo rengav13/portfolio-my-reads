@@ -4,7 +4,7 @@ class SearchPage extends React.Component {
   state = {
    /** TODO: Analisar o que deve ser controlado no estado da busca. **/
   }
-  
+
   render() {
    return (<div className="search-books">
             <div className="search-books-bar">
@@ -23,7 +23,7 @@ class SearchPage extends React.Component {
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid" />
             </div>
           </div>); 
   }
