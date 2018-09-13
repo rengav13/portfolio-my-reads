@@ -1,8 +1,8 @@
 class Mocks {
-    
-    mock() {
-        return [
-            {
+
+    static mock() {
+        return {
+            'currentlyReading': {
                 id: 'currentlyReading',
                 title: "Currently Reading",
                 books: [{
@@ -16,7 +16,8 @@ class Mocks {
                     title: "Ender's Game",
                     authors: "Orson Scott Card"
                 }]
-            }, {
+            },
+            'wantToRead': {
                 id: 'wantToRead',
                 title: "Want to Read",
                 books: [{
@@ -30,7 +31,8 @@ class Mocks {
                     title: "Harry Potter and the Sorcerer's Stone",
                     authors: "J.K. Rowling"
                 }]
-            }, {
+            },
+            'read': {
                 id: 'read',
                 title: "Read",
                 books: [{
@@ -45,7 +47,7 @@ class Mocks {
                     authors: "Seuss"
                 }]
             }
-        ]
+        }
     }
 }
 

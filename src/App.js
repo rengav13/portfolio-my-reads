@@ -1,12 +1,11 @@
-import React from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-// import * as BooksAPI from './BooksAPI'
+import React, { Component } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css'
 
 import SearchPage from './pages/search/SearchPage'
-import HomePage from './pages/HomePage'
+import HomePage from './pages/home/HomePage'
 
-class BooksApp extends React.Component {
+class BooksApp extends Component {
 
     render() {
         return (
@@ -17,7 +16,8 @@ class BooksApp extends React.Component {
                         <Route path="/search" component={SearchPage}/>
                     </Switch>
                 </BrowserRouter>
-            </div>)
+            </div>
+        )
     }
 }
 

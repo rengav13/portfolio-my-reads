@@ -2,8 +2,11 @@ import React from 'react'
 import PropTyes from 'prop-types'
 
 const BookCover = props =>
-    <div className="book-cover" style={{width: 128, height: 193}}>
-        <img src={props.book.cover} alt={props.book.title}/>
+    <div className="book-cover" style={{height: 193, overflowY: 'hidden'}}>
+        <img src={props.book.imageLinks.thumbnail}
+             alt={props.book.title}
+             style={{width: '100%', height: '100%' }}
+        />
     </div>
 
 BookCover.propTypes = {
