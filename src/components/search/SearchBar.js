@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import SearchInput from './SearchInput'
+import SearchInput from './SearchInput';
 
 const SearchBar = props =>
     <div className="search-books-bar">
@@ -11,10 +11,10 @@ const SearchBar = props =>
             Close
         </Link>
         <SearchInput onChange={ props.onChangeQuery }/>
-    </div>
+    </div>;
 
 SearchBar.propTypes = {
     onChangeQuery: PropTypes.func.isRequired
-}
+};
 
-export default SearchBar
+export default SearchBar;
