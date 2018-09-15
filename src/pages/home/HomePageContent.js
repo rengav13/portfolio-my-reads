@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import BookShelf from "../../components/shelf/BookShelf";
 
-const ListBooksContent = (props) =>
+const HomePageContent = (props) =>
     <div className="list-books-content">
         <div>
             {
@@ -17,9 +17,9 @@ const ListBooksContent = (props) =>
         </div>
     </div>
 
-ListBooksContent.propTypes = {
+HomePageContent.propTypes = {
     shelfs: PropTypes.array.isRequired,
     onMoveTo: PropTypes.func.isRequired
 }
 
-export default ListBooksContent
+export default HomePageContent

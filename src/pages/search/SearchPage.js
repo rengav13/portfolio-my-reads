@@ -1,42 +1,45 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import React, {Component} from 'react';
 
 import * as BookAPI from '../../BooksAPI'
 
+import BooksGrid from '../../components/book/BooksGrid'
+import SearchBar from "../../components/search/SearchBar";
+
 class SearchPage extends Component {
-    state = {
-        /** TODO: Analisar o que deve ser controlado no estado da busca. **/
+
+    constructor(props) {
+        super(props)
+        this.state = { books: [] }
+        this.updateBook = this.updateBook.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    componentDidMount() {
-        BookAPI.search('a', 10).then(books => console.log(books))
+    updateBook(book, target) {
+        BookAPI.update(book, target)
+    }
+
+    handleChange(query) {
+        BookAPI.search(query, 20).then(books => {
+            if (books) {
+                this.setState(books['error'] ? { books: [] } : {books})
+            } else {
+                this.setState({ books: [] })
+            }
+        })
     }
 
     render() {
         return (
             <div className="search-books">
-                <div className="search-books-bar">
-                    <Link to="/" className="close-search">
-                        Close
-                    </Link>
-
-                    <div className="search-books-input-wrapper">
-                        {
-                            /*
-                          NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                          You can find these search terms here:
-                          https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-                          However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                          you don't find a specific author or title. Every search is limited by search terms.
-                        */
-                        }
-                        <input type="text" placeholder="Search by title or author"/>
-
-                    </div>
-                </div>
+                <SearchBar onChangeQuery={this.handleChange}/>
                 <div className="search-books-results">
-                    <ol className="books-grid"/>
+                    {
+                        this.state.books.length > 0 ?
+                            <BooksGrid books={this.state.books} onMoveTo={this.updateBook}/> :
+                            <div className="search-no-results">
+                                No books found, please try another query.
+                            </div>
+                    }
                 </div>
             </div>
         )

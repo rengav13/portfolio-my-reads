@@ -3,10 +3,13 @@ import PropTyes from 'prop-types'
 
 const BookCover = props =>
     <div className="book-cover" style={{height: 193, overflowY: 'hidden'}}>
-        <img src={props.book.imageLinks.thumbnail}
-             alt={props.book.title}
-             style={{width: '100%', height: '100%' }}
-        />
+        {
+            props.book.imageLinks ?
+                <img src={props.book.imageLinks.thumbnail}
+                     alt={props.book.title}
+                     style={{width: '100%', height: '100%'}}
+                /> : false
+        }
     </div>
 
 BookCover.propTypes = {

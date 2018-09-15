@@ -3,8 +3,8 @@ import * as BookAPI from '../../BooksAPI'
 
 import Util from '../../common/Util'
 import OpenSearch from "../../components/search/OpenSearch"
-import ListBooksTitle from "./ListBooksTitle"
-import ListBooksContent from "./ListBooksContent"
+import HomePageBar from "./HomePageBar"
+import HomePageContent from "./HomePageContent"
 import ShelfType from '../../common/ShelfType'
 import ShelfVM from '../../common/ShelfVM'
 
@@ -51,9 +51,9 @@ class HomePage extends Component {
     render() {
         return (
             <div className="list-books">
-                <ListBooksTitle/>
-                <ListBooksContent shelfs={Object.values(this.state.shelfs)}
-                                  onMoveTo={this.moveBook}
+                <HomePageBar/>
+                <HomePageContent shelfs={Object.values(this.state.shelfs)}
+                                 onMoveTo={this.moveBook}
                 />
                 <OpenSearch/>
             </div>

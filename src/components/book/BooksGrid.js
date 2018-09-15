@@ -1,23 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Book from "./Book";
 
-import Book from '../book/Book'
-
-const BookShelfGrid = props =>
+const BooksGrid = props =>
     <ol className="books-grid">
         {
-            props.shelf.books.map(book =>
+            props.books.map(book =>
                 <li key={book.id}>
                     <Book book={book}
                           onMoveTo={(target) => props.onMoveTo(book, target)}
                     />
-                </li>)
+                </li>
+            )
         }
     </ol>
 
-BookShelfGrid.propTypes = {
-    shelf: PropTypes.object.isRequired,
+BooksGrid.propTypes = {
+    books: PropTypes.array.isRequired,
     onMoveTo: PropTypes.func.isRequired
 }
 
-export default BookShelfGrid
+export default BooksGrid

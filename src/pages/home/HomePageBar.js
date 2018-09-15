@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ListBooksTitle = () =>
+const HomePageBar = () =>
     <div className="list-books-title">
         <h1>MyReads</h1>
     </div>
 
-export default ListBooksTitle
+export default HomePageBar
